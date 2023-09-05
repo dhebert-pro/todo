@@ -1,2 +1,2 @@
-# todo
-TodoList App
+# TodoList App
+This is the app
