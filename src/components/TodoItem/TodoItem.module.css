@@ -1,0 +1,13 @@
+.item {
+  list-style-type: none;
+  margin: 5px 0;
+}
+
+.checkbox {
+  padding-right: 5px;
+  margin-right: 10px;
+}
+
+.checked {
+  text-decoration: line-through;
+}
