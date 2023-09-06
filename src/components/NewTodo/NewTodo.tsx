@@ -3,6 +3,7 @@ import styles from "./NewTodo.module.css"
 import { addTodo } from "../../features/todo/todoSlice"
 import { useDispatch } from 'react-redux'
 import Todo from "../../types/Todo";
+import { PiCheckBold, PiXBold } from 'react-icons/pi'
 
 const NewTodo = () => {
   const dispatch = useDispatch()
@@ -22,8 +23,10 @@ const NewTodo = () => {
   }
 
   const submit = () => {
-    const todo: Todo = JSON.parse(JSON.stringify(new Todo(label)))
-    dispatch(addTodo(todo))
+    if (label) {
+      const todo: Todo = JSON.parse(JSON.stringify(new Todo(label)))
+      dispatch(addTodo(todo))
+    }
     cancel()
     setLabel('')
   }
@@ -32,8 +35,8 @@ const NewTodo = () => {
     (
       <div className={styles.form}>
         <input type="text" value={label} onChange={changeLabel} placeholder="Ajouter un élément" autoFocus></input>
-        <input type="button" value="Valider" onClick={submit} />
-        <input type="button" value="Annuler" onClick={cancel} />
+        <PiCheckBold className={`${styles.icon} ${styles.check}`} onClick={submit} />
+        <PiXBold className={`${styles.icon} ${styles.x}`} onClick={cancel} />
       </div>
     ) :
     (<input type="button" value="Ajouter un élément" onClick={addField} />)
