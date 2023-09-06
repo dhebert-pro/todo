@@ -3,6 +3,7 @@ import './App.css'
 import TodoList from './components/TodoList'
 import Todo from './types/Todo'
 import { RootState } from './app/store';
+import NewTodo from './components/NewTodo/NewTodo';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <>
       <h1>Todo List</h1>
       <TodoList todos={todos} />
+      <NewTodo />
       <p>
         Nombre d'éléments cochés = {nbChecked}
       </p>

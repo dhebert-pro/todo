@@ -7,7 +7,7 @@ export interface TodoState {
 
 const initialState: TodoState = {
   todos: JSON.parse(JSON.stringify([
-    new Todo("Faire un truc", true),
+    new Todo("Faire un truc"),
     new Todo("Faire un autre truc"),
     new Todo("Arrêter de faire des trucs")
   ])),
@@ -22,11 +22,14 @@ export const todoSlice = createSlice({
       if (todo) {
         todo.enabled = !todo.enabled
       }
+    },
+    addTodo: (state, action) => {
+      state.todos.push(action.payload)
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { toggleTodo } = todoSlice.actions
+export const { toggleTodo, addTodo } = todoSlice.actions
 
 export default todoSlice.reducer
