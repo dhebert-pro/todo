@@ -1,0 +1,20 @@
+.form input[type="button"] {
+  margin-left: 10px;
+}
+.form input[type="text"] {
+  width: 200px;
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.check {
+  color: green;
+}
+
+.x {
+  color: red;
+}
