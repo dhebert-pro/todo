@@ -23,6 +23,7 @@ const NewTodo = () => {
   }
 
   const submit = () => {
+    console.log(label)
     if (label) {
       const todo: Todo = JSON.parse(JSON.stringify(new Todo(label)))
       dispatch(addTodo(todo))
@@ -33,11 +34,11 @@ const NewTodo = () => {
 
   return visibleField ?
     (
-      <div className={styles.form}>
+      <form className={styles.form} onSubmit={submit}>
         <input type="text" value={label} onChange={changeLabel} placeholder="Ajouter un élément" autoFocus></input>
-        <PiCheckBold className={`${styles.icon} ${styles.check}`} onClick={submit} />
-        <PiXBold className={`${styles.icon} ${styles.x}`} onClick={cancel} />
-      </div>
+        <PiCheckBold className={`${styles.icon} ${styles.check}`} onClick={submit} title="Ajouter" />
+        <PiXBold className={`${styles.icon} ${styles.x}`} onClick={cancel} title="Annuler" />
+      </form>
     ) :
     (<input type="button" value="Ajouter un élément" onClick={addField} />)
 }
